@@ -2,29 +2,62 @@ return {
   {
     "theHamsta/nvim-dap-virtual-text",
     lazy = false,
-    dependencies = { "mfussenegger/nvim-dap" },
-    config = function()
-      local dap = require "dap"
-      require("nvim-dap-virtual-text").setup {}
-
-      dap.adapters.php = {
-        type = "executable",
-        command = "node",
-        args = { os.getenv "HOME" .. "/.config/nvim/adapters/vscode-php-debug/out/phpDebug.js" },
-      }
-
-      -- Do not forget to run 'npm install' and 'npm run build' inside the adapters/vscode-php-debug folder
-      -- dap.configurations.php = {
-      --   {
-      --     type = 'php',
-      --     request = 'launch',
-      --     name = 'Listen for Xdebug',
-      --     port = 9003,
-      --     pathMappings = {
-      --         ['/var/www/html'] = "${workspaceFolder}"
-      --     },
-      --   }
-      -- }
-    end,
+  },
+  {
+    "rcarriga/nvim-dap-ui",
+    opts = {
+      controls = {
+        element = "repl",
+        enabled = true,
+        icons = {
+          disconnect = "",
+          pause = "",
+          play = "",
+          run_last = "",
+          step_back = "",
+          step_into = "",
+          step_out = "",
+          step_over = "",
+          terminate = "",
+        },
+      },
+      element_mappings = {},
+      expand_lines = true,
+      floating = {
+        border = "single",
+        mappings = {
+          close = { "q", "<Esc>" },
+        },
+      },
+      force_buffers = true,
+      icons = {
+        collapsed = "",
+        current_frame = "",
+        expanded = "",
+      },
+      layouts = {
+        {
+          elements = {
+            {
+              id = "repl",
+            },
+          },
+          position = "bottom",
+          size = 10,
+        },
+      },
+      mappings = {
+        edit = "e",
+        expand = { "<CR>", "<2-LeftMouse>" },
+        open = "o",
+        remove = "d",
+        repl = "r",
+        toggle = "t",
+      },
+      render = {
+        indent = 1,
+        max_value_lines = 100,
+      },
+    },
   },
 }

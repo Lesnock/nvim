@@ -54,31 +54,26 @@ return {
           end,
           desc = "Find all files",
         },
-        -- second key is the lefthand side of the map
+
         -- navigate buffer tabs with `H` and `L`
-        L = {
-          function() require("astronvim.utils.buffer").nav(vim.v.count > 0 and vim.v.count or 1) end,
-          desc = "Next buffer",
-        },
-        H = {
-          function() require("astronvim.utils.buffer").nav(-(vim.v.count > 0 and vim.v.count or 1)) end,
-          desc = "Previous buffer",
-        },
+        L = { function() require("astrocore.buffer").nav(vim.v.count1) end, desc = "Next buffer" },
+        H = { function() require("astrocore.buffer").nav(-vim.v.count1) end, desc = "Previous buffer" },
 
         ["<cr>"] = { "zz", desc = "Centralize screen" },
 
-        -- mappings seen under group name "Buffer"
-        ["<leader>bD"] = {
+        ["<Leader>bD"] = {
           function()
-            require("astronvim.utils.status").heirline.buffer_picker(
-              function(bufnr) require("astronvim.utils.buffer").close(bufnr) end
+            require("astroui.status.heirline").buffer_picker(
+              function(bufnr) require("astrocore.buffer").close(bufnr) end
             )
           end,
           desc = "Pick to close",
         },
+
         -- tables with the `name` key will be registered with which-key if it's installed
         -- this is useful for naming menus
-        ["<leader>b"] = { name = "Buffers" },
+        ["<leader>b"] = { desc = "Buffers" },
+
         -- quick save
         ["<C-s>"] = { ":w!<cr>", desc = "Save File" }, -- change description but the same command
 
@@ -89,18 +84,20 @@ return {
           function() vim.lsp.buf.format() end,
           desc = "Format buffer",
         },
-        ["<leader>P"] = { ":syntax sync fromstart<cr>", desc = "Sync syntax from start" },
 
-        -- Rest Client
-        ["<leader>R"] = {
-          function() require("rest-nvim").run() end,
-        },
+        ["<leader>P"] = { ":syntax sync fromstart<cr>", desc = "Sync syntax from start" },
 
         ["<leader>a"] = {
           function() vim.lsp.buf.code_action() end,
           desc = "Run LSP code actions",
         },
+
+        ["U"] = {
+          function() require("dapui").eval() end,
+          desc = "Eval expression",
+        },
       },
+
       t = {
         ["<esc>"] = { "<C-\\><C-n>", desc = "Exit from terminal mode" },
       },
@@ -120,9 +117,6 @@ return {
         -- move line
         ["<A-j>"] = { ":m .+1<cr>==gi", desc = "Move line down" },
         ["<A-k>"] = { ":m '<-2<cr>gv=gv", desc = "Move line up" },
-
-        -- Surrounding
-        ["("] = { "Sb", desc = "Surround selected with parentheses" },
       },
     },
   },
