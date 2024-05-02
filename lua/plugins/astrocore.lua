@@ -101,8 +101,9 @@ return {
       t = {
         ["<esc>"] = { "<C-\\><C-n>", desc = "Exit from terminal mode" },
       },
+
       i = {
-        ["<C-s>"] = { "<esc>:w!<cr>", desc = "Save File" },
+        ["<C-s>"] = { ":w!<cr>", desc = "Save File" }, -- change description but the same command
 
         -- move line
         ["<A-j>"] = { "<esc>:m .+1<cr>==gi", desc = "Move line down" },
@@ -113,6 +114,7 @@ return {
           desc = "Show lsp options",
         },
       },
+
       v = {
         -- move line
         ["<A-j>"] = { ":m .+1<cr>==gi", desc = "Move line down" },
