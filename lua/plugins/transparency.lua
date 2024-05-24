@@ -25,8 +25,8 @@ return {
         "LineNr",
         "NonText",
         "SignColumn",
-        "CursorLine",
-        "CursorLineNr",
+        -- "CursorLine",
+        -- "CursorLineNr",
         "StatusLine",
         "StatusLineNC",
         "EndOfBuffer",
@@ -34,9 +34,13 @@ return {
         "TabLine",
       },
       extra_groups = {
-        "NeoTree",
+        -- "NeoTree",
       },
-      exclude_groups = {},
+      exclude_groups = {
+        "CursorLine",
+        "CursorLineNr",
+        "NeoTreeCursorLine",
+      },
     }
   end,
 }
