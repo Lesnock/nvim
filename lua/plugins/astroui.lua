@@ -13,7 +13,33 @@ return {
     -- AstroUI allows you to easily modify highlight groups easily for any and all colorschemes
     highlights = {
       init = { -- this table overrides highlights in all themes
-        -- Normal = { bg = "#000000" },
+        Normal = {
+          ctermbg = "none",
+        },
+        NonText = {
+          ctermbg = "none",
+        },
+        NeoTreeNormal = {
+          ctermbg = "none",
+        },
+        VertSplit = {
+          ctermbg = "none",
+        },
+        Title = {
+          ctermbg = "none",
+        },
+        NormalFloat = {
+          ctermbg = "none",
+        },
+        FloatBorder = {
+          ctermbg = "none",
+        },
+        PmenuSel = {
+          bg = "#ffff00",
+        },
+        FoldColumn = {
+          bg = "none",
+        },
       },
       astrotheme = { -- a table of overrides/changes when applying the astrotheme theme
         -- Normal = { bg = "#000000" },
