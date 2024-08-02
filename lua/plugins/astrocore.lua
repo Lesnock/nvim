@@ -96,6 +96,9 @@ return {
           function() require("dapui").eval() end,
           desc = "Eval expression",
         },
+        ["gd"] = {
+          function() require("telescope.builtin").lsp_definitions() end,
+        },
       },
 
       t = {
