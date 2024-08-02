@@ -12,6 +12,10 @@ return {
       "html",
       "php",
       "php_only",
+      "vue",
+      "javascript",
+      "typescript",
+      "css",
       -- add more arguments for adding more treesitter parsers
     })
   end,
