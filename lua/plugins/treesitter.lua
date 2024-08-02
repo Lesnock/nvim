@@ -8,7 +8,7 @@ return {
       "vim",
       "http",
       "json",
-      "blade",
+      -- "blade",
       "html",
       "php",
       "php_only",
