@@ -16,7 +16,7 @@ return {
       "javascript",
       "typescript",
       "css",
-      -- add more arguments for adding more treesitter parsers
+-- add more arguments for adding more treesitter parsers
     })
   end,
   init = function()

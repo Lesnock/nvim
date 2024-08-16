@@ -13,7 +13,8 @@ return {
         "tsserver",
         "intelephense",
         "vuels",
-        -- add more arguments for adding more language servers
+        "cssls"
+-- add more arguments for adding more language servers
       })
     end,
   },
